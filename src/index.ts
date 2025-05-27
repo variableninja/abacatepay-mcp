@@ -41,13 +41,8 @@ async function makeAbacatePayRequest<T>(endpoint: string, options: RequestInit =
     "Authorization": `Bearer ${apiKey}`
   };
 
-  // Construir URL corretamente
   const url = `${ABACATE_PAY_API_BASE}/${endpoint}`;
   
-  // Log para debug
-  console.error(`Debug - URL construída: ${url}`);
-  console.error(`Debug - Método: ${options.method || 'GET'}`);
-
   try {
     const response = await fetch(url, {
       ...options,
