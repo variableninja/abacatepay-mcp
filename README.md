@@ -163,12 +163,6 @@ Veja [CONTRIBUTING.md](CONTRIBUTING.md) para mais detalhes sobre o desenvolvimen
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 🙏 Agradecimentos
-
-- [Abacate Pay](https://abacatepay.com) 🥑 pela excelente API de pagamentos
-- [Anthropic](https://anthropic.com) pelo Model Context Protocol
-- Comunidade open source brasileira
-
 ## 📞 Suporte
 
 - 🐛 [Issues](https://github.com/ViniciusAmeric/abacate-pay-mcp/issues)
