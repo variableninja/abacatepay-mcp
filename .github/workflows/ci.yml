@@ -95,8 +95,9 @@ jobs:
         fi
         
         # Verifica se o package.json tem os scripts necessários
-        if ! npm run --silent | grep -q "build\|start\|inspector"; then
+        if ! grep -q '"build"' package.json || ! grep -q '"start"' package.json || ! grep -q '"inspector"' package.json; then
           echo "❌ Scripts npm essenciais não encontrados!"
+          echo "📋 Scripts necessários: build, start, inspector"
           exit 1
         fi
         
