@@ -1,5 +1,4 @@
 import minimist from "minimist";
-import { fileURLToPath } from 'url';
 
 const argv = minimist(process.argv.slice(2));
 
