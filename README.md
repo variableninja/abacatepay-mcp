@@ -102,12 +102,35 @@ Após configurar, você pode usar comandos naturais no Claude:
 - "Crie um QR Code PIX de R$ 50"
 - "Crie um cupom de 20% de desconto"
 
+## 🔍 Testando com MCP Inspector
+
+Para testar e explorar as funcionalidades do servidor MCP, use nosso script facilitador:
+
+```bash
+npm run inspector
+```
+
+O script irá:
+- ✅ Verificar se o projeto está compilado
+- ✅ Compilar automaticamente se necessário  
+- ✅ Pedir sua chave de API de forma segura
+- ✅ Abrir o MCP Inspector no navegador
+
+**Dica:** Para não precisar digitar a chave toda vez:
+```bash
+export ABACATE_PAY_API_KEY="sua_chave_aqui"
+npm run inspector
+```
+
+Veja mais detalhes em [scripts/README.md](scripts/README.md).
+
 ## 📚 Scripts Disponíveis
 
 - `npm run build`: Compila o projeto
 - `npm run dev`: Modo desenvolvimento com recompilação automática
 - `npm run start`: Executa o servidor compilado
 - `npm run clean`: Remove a pasta de compilação
+- `npm run inspector`: Abre o MCP Inspector (novo! 🎉)
 
 ## 🔧 Desenvolvimento
 
@@ -148,16 +171,40 @@ O servidor inclui logs de debug que aparecem no stderr:
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Este projeto foi criado para a comunidade do Abacate Pay 🥑.
+**Este projeto é amigável para iniciantes!** 🌟 Contribuições são muito bem-vindas, independente do seu nível de experiência.
 
-### Como Contribuir
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
+### 🚀 Contribuição Rápida
+```bash
+# 1. Fork e clone
+git clone https://github.com/SEU_USUARIO/abacatepay-mcp.git
+cd abacatepay-mcp && npm install
 
-Veja [CONTRIBUTING.md](CONTRIBUTING.md) para mais detalhes sobre o desenvolvimento.
+# 2. Faça suas mudanças
+git checkout -b minha-contribuicao
+# ... edite os arquivos ...
+npm run build  # Testa se compila
+
+# 3. Envie
+git add . && git commit -m "feat: minha contribuição"
+git push origin minha-contribuicao
+# Abra um PR no GitHub!
+```
+
+### ✅ **O que é bem-vindo:**
+- 🐛 Correções de bugs
+- ✨ Novas funcionalidades  
+- 📚 Melhorias na documentação
+- 🎨 Melhorias na UX
+- 🧪 Testes e exemplos
+
+### 🤗 **Não se preocupe com:**
+- ❌ Warnings de lint (não impedem merge)
+- ❌ Configurações complexas
+- ❌ Documentação perfeita
+
+**💡 Dica**: O CI/CD é amigável! Warnings não impedem o merge, apenas ajudam a melhorar.
+
+📖 **Guia completo**: [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 
 ## 📄 Licença
 
