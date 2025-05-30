@@ -1,28 +1,24 @@
-import { apiKey, ABACATE_PAY_API_BASE, USER_AGENT } from "../config.js";
+import { validateApiKey, ABACATE_PAY_API_BASE, USER_AGENT } from "../config.js";
 
-export async function makeAbacatePayRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+export async function makeAbacatePayRequest<T = any>(endpoint: string, options: RequestInit = {}): Promise<T> {
+  const url = `${ABACATE_PAY_API_BASE}${endpoint}`;
+  
   const headers = {
-    "User-Agent": USER_AGENT,
-    "Content-Type": "application/json",
-    "Authorization": `Bearer ${apiKey}`
+    'Authorization': `Bearer ${validateApiKey()}`,
+    'Content-Type': 'application/json',
+    'User-Agent': USER_AGENT,
+    ...options.headers,
   };
 
-  const url = `${ABACATE_PAY_API_BASE}/${endpoint}`;
-  
-  try {
-    const response = await fetch(url, {
-      ...options,
-      headers: { ...headers, ...options.headers }
-    });
+  const response = await fetch(url, {
+    ...options,
+    headers,
+  });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`HTTP ${response.status}: ${errorText}`);
-    }
-
-    return await response.json() as T;
-  } catch (error) {
-    console.error("Erro na requisição:", error);
-    throw error;
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
   }
+
+  return response.json();
 } 
