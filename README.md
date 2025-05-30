@@ -1,64 +1,33 @@
 # 🥑 Abacate Pay MCP Server
 
-Um servidor MCP (Model Context Protocol) para integração com a API do Abacate Pay 🥑, permitindo gerenciar clientes, cobranças, QR Codes PIX e cupons de desconto através de assistentes de IA como Claude.
+Um servidor MCP (Model Context Protocol) para integração com a API do Abacate Pay, permitindo gerenciar pagamentos, clientes e cobranças através de assistentes de IA como Claude.
 
-## 🚀 Funcionalidades
+## ✨ O que você pode fazer
 
-### 👥 Gestão de Clientes
-- **createCustomer**: Criar novos clientes
-- **listCustomers**: Listar todos os clientes cadastrados
+- 👥 **Gerenciar clientes**: Criar e listar clientes
+- 💰 **Criar cobranças**: Links de pagamento e faturas
+- 📱 **QR Codes PIX**: Pagamentos instantâneos
+- 🎫 **Cupons de desconto**: Promoções e descontos
+- 🔍 **Testar facilmente**: Script inspector integrado
 
-### 💰 Gestão de Cobranças
-- **createBilling**: Criar cobranças/links de pagamento
-- **listBillings**: Listar todas as cobranças
+## 🚀 Instalação Rápida
 
-### 📱 QR Code PIX
-- **createPixQrCode**: Criar QR Code PIX para pagamento direto
-- **simulatePixPayment**: Simular pagamento PIX (modo desenvolvimento)
-- **checkPixStatus**: Verificar status de QR Code PIX
-
-### 🎫 Gestão de Cupons
-- **createCoupon**: Criar cupons de desconto
-- **listCoupons**: Listar todos os cupons
-
-## 📋 Pré-requisitos
-
-- Node.js 16 ou superior
-- Chave de API do Abacate Pay 🥑
-- Claude Desktop ou outro cliente MCP
-
-## 🛠️ Instalação
-
-1. Clone o repositório:
 ```bash
-git clone https://github.com/ViniciusAmeric/abacate-pay-mcp.git
-cd abacate-pay-mcp
-```
+# Clone e instale
+git clone https://github.com/AbacatePay/abacatepay-mcp.git
+cd abacatepay-mcp
+npm install && npm run build
 
-2. Instale as dependências:
-```bash
-npm install
-```
-
-3. Compile o projeto:
-```bash
-npm run build
-```
-
-## ⚙️ Configuração
-
-### Opção 1: Variável de Ambiente
-```bash
+# Configure sua chave de API
 export ABACATE_PAY_API_KEY="sua_chave_api_aqui"
+
+# Teste
+npm run inspector
 ```
 
-### Opção 2: Argumento de Linha de Comando
-```bash
-node dist/index.js --key sua_chave_api_aqui
-```
+## ⚙️ Configuração no Claude Desktop
 
-### Opção 3: Claude Desktop
-Adicione ao arquivo `claude_desktop_config.json`:
+Adicione ao seu `claude_desktop_config.json`:
 
 **macOS/Linux:**
 ```json
@@ -67,7 +36,7 @@ Adicione ao arquivo `claude_desktop_config.json`:
     "abacate-pay": {
       "command": "node",
       "args": [
-        "/caminho/absoluto/para/abacate-pay-mcp/dist/index.js",
+        "/caminho/absoluto/para/abacatepay-mcp/dist/index.js",
         "--key",
         "sua_chave_api_do_abacate_pay"
       ]
@@ -83,7 +52,7 @@ Adicione ao arquivo `claude_desktop_config.json`:
     "abacate-pay": {
       "command": "node",
       "args": [
-        "C:\\caminho\\absoluto\\para\\abacate-pay-mcp\\dist\\index.js",
+        "C:\\caminho\\absoluto\\para\\abacatepay-mcp\\dist\\index.js",
         "--key",
         "sua_chave_api_do_abacate_pay"
       ]
@@ -92,127 +61,100 @@ Adicione ao arquivo `claude_desktop_config.json`:
 }
 ```
 
-## 🎯 Uso
+## 🎯 Como usar
 
-Após configurar, você pode usar comandos naturais no Claude:
+Após configurar, use comandos naturais no Claude:
 
-- "Crie um cliente chamado João Silva"
-- "Liste meus clientes"
-- "Crie uma cobrança de R$ 100 para consultoria"
-- "Crie um QR Code PIX de R$ 50"
-- "Crie um cupom de 20% de desconto"
+```
+"Crie um cliente chamado João Silva com CPF 123.456.789-01"
+"Liste meus clientes cadastrados"
+"Crie uma cobrança de R$ 150 para consultoria"
+"Gere um QR Code PIX de R$ 50 para pagamento rápido"
+"Crie um cupom de 20% de desconto com código PROMO20"
+```
 
 ## 🔍 Testando com MCP Inspector
 
-Para testar e explorar as funcionalidades do servidor MCP, use nosso script facilitador:
+O **MCP Inspector** é a forma mais fácil de testar e explorar as funcionalidades:
 
 ```bash
 npm run inspector
 ```
 
-O script irá:
-- ✅ Verificar se o projeto está compilado
-- ✅ Compilar automaticamente se necessário  
-- ✅ Pedir sua chave de API de forma segura
-- ✅ Abrir o MCP Inspector no navegador
+**O que acontece:**
+- ✅ Verifica se o projeto está compilado
+- ✅ Compila automaticamente se necessário  
+- ✅ Pede sua chave de API de forma segura (sem mostrar no terminal)
+- ✅ Abre o MCP Inspector no navegador
+- ✅ Permite testar todas as funcionalidades interativamente
 
-**Dica:** Para não precisar digitar a chave toda vez:
+**💡 Dica:** Configure a variável de ambiente para não precisar digitar a chave toda vez:
 ```bash
 export ABACATE_PAY_API_KEY="sua_chave_aqui"
 npm run inspector
 ```
 
-Veja mais detalhes em [scripts/README.md](scripts/README.md).
+## 📚 Funcionalidades Disponíveis
 
-## 📚 Scripts Disponíveis
+### 👥 Gestão de Clientes
+- `createCustomer` - Criar novos clientes com CPF/CNPJ
+- `listCustomers` - Listar todos os clientes cadastrados
 
-- `npm run build`: Compila o projeto
-- `npm run dev`: Modo desenvolvimento com recompilação automática
-- `npm run start`: Executa o servidor compilado
-- `npm run clean`: Remove a pasta de compilação
-- `npm run inspector`: Abre o MCP Inspector (novo! 🎉)
+### 💰 Gestão de Cobranças  
+- `createBilling` - Criar links de pagamento personalizados
+- `listBillings` - Listar todas as cobranças criadas
 
-## 🔧 Desenvolvimento
+### 📱 QR Code PIX
+- `createPixQrCode` - Gerar QR Code PIX para pagamento direto
+- `checkPixStatus` - Verificar status de pagamento
+- `simulatePixPayment` - Simular pagamento (modo desenvolvimento)
 
-### Estrutura do Projeto
-```
-abacate-pay-mcp/
-├── src/
-│   └── index.ts          # Código principal do servidor MCP
-├── dist/                 # Arquivos compilados
-├── package.json          # Configurações do projeto
-├── tsconfig.json         # Configurações do TypeScript
-└── README.md            # Este arquivo
-```
+### 🎫 Gestão de Cupons
+- `createCoupon` - Criar cupons de desconto (% ou valor fixo)
+- `listCoupons` - Listar todos os cupons criados
 
-### Adicionando Novas Funcionalidades
-
-1. Adicione a nova ferramenta em `src/index.ts`
-2. Compile o projeto: `npm run build`
-3. Teste a funcionalidade
-
-## 🐛 Troubleshooting
+## 🐛 Problemas Comuns
 
 ### Servidor não aparece no Claude
 1. Verifique se o caminho no `claude_desktop_config.json` está correto
-2. Certifique-se de que o projeto foi compilado (`npm run build`)
+2. Certifique-se de que executou `npm run build`
 3. Reinicie o Claude Desktop completamente
 
 ### Erro de autenticação
-1. Verifique se a chave de API está correta
-2. Confirme se a chave tem as permissões necessárias
-3. Teste a chave diretamente na API do Abacate Pay 🥑
+1. Confirme se a chave de API está correta
+2. Teste primeiro com `npm run inspector`
+3. Verifique se a chave tem as permissões necessárias
 
-### Logs de Debug
-O servidor inclui logs de debug que aparecem no stderr:
-- URL construída para cada requisição
-- Método HTTP utilizado
-- Erros detalhados
+### Erro de compilação
+```bash
+# Limpe e recompile
+npm run clean
+npm run build
+```
 
 ## 🤝 Contribuindo
 
-**Este projeto é amigável para iniciantes!** 🌟 Contribuições são muito bem-vindas, independente do seu nível de experiência.
+Contribuições são muito bem-vindas! Este projeto é amigável para iniciantes.
 
-### 🚀 Contribuição Rápida
+**Contribuição rápida:**
 ```bash
-# 1. Fork e clone
+# Fork, clone e configure
 git clone https://github.com/SEU_USUARIO/abacatepay-mcp.git
 cd abacatepay-mcp && npm install
 
-# 2. Faça suas mudanças
-git checkout -b minha-contribuicao
-# ... edite os arquivos ...
-npm run build  # Testa se compila
+# Faça suas mudanças e teste
+npm run build && npm run inspector
 
-# 3. Envie
+# Envie sua contribuição
 git add . && git commit -m "feat: minha contribuição"
-git push origin minha-contribuicao
-# Abra um PR no GitHub!
+git push origin minha-branch
 ```
 
-### ✅ **O que é bem-vindo:**
-- 🐛 Correções de bugs
-- ✨ Novas funcionalidades  
-- 📚 Melhorias na documentação
-- 🎨 Melhorias na UX
-- 🧪 Testes e exemplos
-
-### 🤗 **Não se preocupe com:**
-- ❌ Warnings de lint (não impedem merge)
-- ❌ Configurações complexas
-- ❌ Documentação perfeita
-
-**💡 Dica**: O CI/CD é amigável! Warnings não impedem o merge, apenas ajudam a melhorar.
-
-📖 **Guia completo**: [CONTRIBUTING.md](.github/CONTRIBUTING.md)
-
-## 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+📖 **Guia completo de desenvolvimento**: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## 📞 Suporte
 
-- 🐛 [Issues](https://github.com/ViniciusAmeric/abacate-pay-mcp/issues)
+- 🐛 [Reportar problemas](https://github.com/AbacatePay/abacatepay-mcp/issues)
 - 📖 [Documentação do Abacate Pay](https://docs.abacatepay.com)
 - 🔧 [Model Context Protocol](https://modelcontextprotocol.io)
 
