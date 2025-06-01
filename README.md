@@ -10,7 +10,32 @@ Um servidor MCP (Model Context Protocol) para integração com a API do Abacate 
 - 🎫 **Cupons de desconto**: Promoções e descontos
 - 🔍 **Testar facilmente**: Script inspector integrado
 
-## 🚀 Instalação Rápida
+## 🚀 Instalação Rápida (Recomendada)
+
+### Via NPX - Sem necessidade de clone
+
+Adicione diretamente ao seu `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "abacate-pay": {
+      "command": "npx",
+      "args": [
+        "abacatepay-mcp",
+        "--key",
+        "sua_chave_api_do_abacate_pay"
+      ]
+    }
+  }
+}
+```
+
+**Pronto! 🎉** Não precisa instalar nada, o NPX vai baixar automaticamente a versão mais recente.
+
+## 🔧 Instalação Manual (Desenvolvimento)
+
+Se você quer contribuir ou personalizar:
 
 ```bash
 # Clone e instale
@@ -27,7 +52,30 @@ npm run inspector
 
 ## ⚙️ Configuração no Claude Desktop
 
-Adicione ao seu `claude_desktop_config.json`:
+### 🎯 Opção 1: NPX (Recomendada)
+
+```json
+{
+  "mcpServers": {
+    "abacate-pay": {
+      "command": "npx",
+      "args": [
+        "abacatepay-mcp",
+        "--key",
+        "sua_chave_api_do_abacate_pay"
+      ]
+    }
+  }
+}
+```
+
+**Vantagens:**
+- ✅ Sempre usa a versão mais recente
+- ✅ Não precisa clonar repositório
+- ✅ Zero manutenção
+- ✅ Funciona em qualquer sistema
+
+### 🔧 Opção 2: Local (Para desenvolvimento)
 
 **macOS/Linux:**
 ```json
