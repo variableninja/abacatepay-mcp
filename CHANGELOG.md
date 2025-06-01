@@ -1,5 +1,16 @@
 # abacatepay-mcp
 
+## 1.0.5
+
+### Patch Changes
+
+- 7502e34: Corrige problema de dependências faltando ao executar via NPX
+
+  - Implementa bundling com esbuild para incluir todas as dependências em um único arquivo
+  - Resolve erro "Cannot find package '@modelcontextprotocol/sdk'"
+  - Agora funciona perfeitamente com `npx abacatepay-mcp` sem necessidade de instalação manual
+  - Bundle otimizado de ~261KB incluindo todas as dependências necessárias
+
 ## 1.0.4
 
 ### Patch Changes
