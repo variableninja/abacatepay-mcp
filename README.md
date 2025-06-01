@@ -22,6 +22,7 @@ Adicione ao seu `claude_desktop_config.json`:
     "abacate-pay": {
       "command": "npx",
       "args": [
+        "-y",
         "abacatepay-mcp"
       ],
       "env": {
