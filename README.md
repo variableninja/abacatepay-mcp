@@ -10,9 +10,18 @@ Um servidor MCP (Model Context Protocol) para integração com a API do Abacate 
 - 🎫 **Cupons de desconto**: Promoções e descontos
 - 🔄 **Simular pagamentos**: Testar fluxos em desenvolvimento
 
-## 🚀 Configuração Rápida
+## 🚀 Instalação e Configuração
 
-### Claude Desktop
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/AbacatePay/abacatepay-mcp.git
+cd abacatepay-mcp
+npm install
+npm run build
+```
+
+### 2. Configure no Claude Desktop
 
 Adicione ao seu `claude_desktop_config.json`:
 
@@ -20,11 +29,8 @@ Adicione ao seu `claude_desktop_config.json`:
 {
   "mcpServers": {
     "abacate-pay": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "abacatepay-mcp"
-      ],
+      "command": "node",
+      "args": ["/caminho/completo/para/abacatepay-mcp/dist/index.js"],
       "env": {
         "ABACATE_PAY_API_KEY": "sua_api_key_aqui"
       }
@@ -33,7 +39,7 @@ Adicione ao seu `claude_desktop_config.json`:
 }
 ```
 
-### Cursor
+### 3. Configure no Cursor
 
 Adicione ao seu `settings.json` do Cursor:
 
@@ -41,8 +47,8 @@ Adicione ao seu `settings.json` do Cursor:
 {
   "mcp.servers": {
     "abacate-pay": {
-      "command": "npx",
-      "args": ["abacatepay-mcp"],
+      "command": "node",
+      "args": ["/caminho/completo/para/abacatepay-mcp/dist/index.js"],
       "env": {
         "ABACATE_PAY_API_KEY": "sua_api_key_aqui"
       }
@@ -51,7 +57,9 @@ Adicione ao seu `settings.json` do Cursor:
 }
 ```
 
-## 🔑 API Key
+**⚠️ Importante**: Substitua `/caminho/completo/para/abacatepay-mcp/` pelo caminho real onde você clonou o repositório.
+
+## 🔑 Como obter sua API Key
 
 1. Acesse [Abacate Pay](https://www.abacatepay.com)
 2. Vá em **Integrar** → **API Keys**
@@ -78,17 +86,25 @@ Adicione ao seu `settings.json` do Cursor:
 
 ### Erro de API Key
 ```
-Error: API Key inválida
+❌ Chave de API não fornecida
 ```
 **Solução**: Verifique se sua API Key está correta no arquivo de configuração.
 
-
 ### MCP Server não conecta
-**Solução**: Reinicie o Claude Desktop/Cursor após adicionar a configuração.
+**Solução**: 
+1. Verifique se o caminho para o arquivo está correto
+2. Reinicie o Claude Desktop/Cursor após adicionar a configuração
+3. Certifique-se de que executou `npm run build`
+
+### Erro de permissão
+**Solução**: Certifique-se de que o arquivo `dist/index.js` tenha permissões de execução:
+```bash
+chmod +x dist/index.js
+```
 
 ## 🤝 Contribuição
 
-Quer contribuir? Veja o [Guia de Contribuição](CONTRIBUTING.md) para:
+Quer contribuir? Veja o [Guia de Contribuição](CONTRIBUTING.md).
 
 ## 📄 Licença
 
