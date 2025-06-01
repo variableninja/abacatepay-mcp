@@ -1,5 +1,15 @@
 # abacatepay-mcp
 
+## 1.0.4
+
+### Patch Changes
+
+- bff91cb: Corrige compatibilidade com Node.js 18+
+
+  - Atualiza requisito do Node.js de >=22.16.0 para >=18.19.1
+  - Adiciona shebang correto no arquivo executável
+  - Melhora compatibilidade com a maioria das instalações do Node.js
+
 ## 1.0.2
 
 ### Patch Changes

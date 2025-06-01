@@ -1,3 +1,0 @@
----
-"abacatepay-mcp": patch
----
