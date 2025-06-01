@@ -1,5 +1,5 @@
 {
-  "name": "abacate-pay-mcp",
+  "name": "abacatepay-mcp",
   "version": "1.0.0",
   "description": "🥑 Servidor MCP (Model Context Protocol) para integração com a API do Abacate Pay - Gerencie clientes, cobranças, PIX e cupons através de assistentes de IA",
   "main": "dist/index.js",
@@ -14,7 +14,12 @@
     "lint": "eslint src/ scripts/ --ext .ts,.js",
     "lint:fix": "eslint src/ scripts/ --ext .ts,.js --fix",
     "security": "npm audit && npm run lint",
-    "precommit": "npm run security && npm run build"
+    "precommit": "npm run security && npm run build",
+    "release": "release-it",
+    "release:patch": "release-it patch",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major",
+    "release:dry": "release-it --dry-run"
   },
   "files": [
     "dist",
@@ -22,11 +27,11 @@
     "LICENSE"
   ],
   "bin": {
-    "abacate-pay-mcp": "./dist/index.js"
+    "abacatepay-mcp": "./dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ViniciusAmeric/abacate-pay-mcp.git"
+    "url": "git+https://github.com/AbacatePay/abacatepay-mcp.git"
   },
   "keywords": [
     "mcp",
@@ -45,9 +50,9 @@
   "author": "Vinícius Américo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ViniciusAmeric/abacate-pay-mcp/issues"
+    "url": "https://github.com/AbacatePay/abacatepay-mcp/issues"
   },
-  "homepage": "https://github.com/ViniciusAmeric/abacate-pay-mcp#readme",
+  "homepage": "https://github.com/AbacatePay/abacatepay-mcp#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
     "minimist": "^1.2.8",
@@ -63,9 +68,10 @@
     "eslint": "^9.27.0",
     "eslint-plugin-security": "^3.0.1",
     "inquirer": "^12.6.3",
+    "release-it": "^15.11.0",
     "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=22.16.0"
   }
 }
