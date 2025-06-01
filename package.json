@@ -15,11 +15,10 @@
     "lint:fix": "eslint src/ scripts/ --ext .ts,.js --fix",
     "security": "npm audit && npm run lint",
     "precommit": "npm run security && npm run build",
-    "release": "release-it",
-    "release:patch": "release-it patch",
-    "release:minor": "release-it minor",
-    "release:major": "release-it major",
-    "release:dry": "release-it --dry-run"
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
+    "changeset:status": "changeset status"
   },
   "files": [
     "dist",
@@ -59,6 +58,7 @@
     "zod": "^3.25.30"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.4",
     "@eslint/js": "^9.27.0",
     "@types/inquirer": "^9.0.8",
     "@types/minimist": "^1.2.5",
@@ -68,7 +68,6 @@
     "eslint": "^9.27.0",
     "eslint-plugin-security": "^3.0.1",
     "inquirer": "^12.6.3",
-    "release-it": "^15.11.0",
     "typescript": "^5.8.3"
   },
   "engines": {
