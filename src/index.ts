@@ -5,7 +5,7 @@ import { registerAllTools } from "./tools/index.js";
 
 function createServer(): McpServer {
   const server = new McpServer({
-    name: "abacate-pay-mcp",
+    name: "abacatepay-mcp",
     version: "1.0.0",
     capabilities: {
       resources: {},

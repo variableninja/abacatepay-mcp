@@ -22,7 +22,7 @@ export function validateApiKey(): string {
 const isMainModule = process.argv[1] && (
   process.argv[1].endsWith('index.js') || 
   process.argv[1].endsWith('dist/index.js') ||
-  process.argv[1].includes('abacate-pay-mcp')
+  process.argv[1].includes('abacatepay-mcp')
 );
 
 if (isMainModule && !process.env.NODE_ENV?.includes('test')) {
@@ -31,4 +31,4 @@ if (isMainModule && !process.env.NODE_ENV?.includes('test')) {
 }
 
 export const ABACATE_PAY_API_BASE = "https://api.abacatepay.com/v1";
-export const USER_AGENT = "abacate-pay-mcp/1.0"; 
+export const USER_AGENT = "abacatepay-mcp/1.0"; 
