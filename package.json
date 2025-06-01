@@ -1,6 +1,6 @@
 {
   "name": "abacatepay-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🥑 Servidor MCP (Model Context Protocol) para integração com a API do Abacate Pay - Gerencie clientes, cobranças, PIX e cupons através de assistentes de IA",
   "main": "dist/index.js",
   "type": "module",
