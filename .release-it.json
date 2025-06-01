@@ -1,0 +1,21 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}",
+    "push": true,
+    "requireCommits": true,
+    "requireCleanWorkingDir": true,
+    "requireBranch": "main"
+  },
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": false,
+    "releaseName": "🥑 Abacate Pay MCP v${version}"
+  },
+  "hooks": {
+    "before:init": ["npm run lint", "npm run build"],
+    "after:release": "echo ✅ Versão ${version} atualizada! Agora você pode publicar manualmente quando quiser."
+  }
+} 
